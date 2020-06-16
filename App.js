@@ -24,14 +24,49 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import styles from './App.style';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './src/screens/Homne/Home';
+import AboutScreen from './src/screens/About/About';
+
+const { container,
+        titleStyle
+ } = styles
+
+const Stack = createStackNavigator();
 
 class App extends React.Component {
   render(){
     return(
-            <View style={styles.container}>
-              <Text style={[styles.titleStyle,styles.colorBackground]}>Home Screen1 </Text>
-              <Text style={[styles.titleStyle,{backgroundColor:'orange'}]}>Home Screen 2</Text>
-            </View>
+
+      <NavigationContainer>
+        <Stack.Navigator 
+          initialRouteName="welcome"
+          screenOptions={{headerStyle:{backgroundColor:'pink'}}}
+        >
+
+          <Stack.Screen 
+            name="welcome"
+            component={HomeScreen}
+            options={{title:'Welcome RN'}}
+          />
+          <Stack.Screen 
+            name="about"
+            component={AboutScreen} 
+            options={{title:'About'}}
+          // options={({ navigation }) => ({
+          //   title:'About',
+          //   headerLeft:() => (
+          //     <Text>Back</Text>
+          //   ),
+          // })}
+            />
+        </Stack.Navigator>
+      </NavigationContainer>
+            // <View style={container}>
+            //   <Text style={[titleStyle,styles.colorBackground]}>Home Screen1 </Text>
+            //   <Text style={[titleStyle,{backgroundColor:'orange'}]}>Home Screen 2</Text>
+            // </View>
     )
             
   }
