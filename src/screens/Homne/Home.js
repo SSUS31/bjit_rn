@@ -12,6 +12,10 @@ export default class Home extends Component{
                     title="Go to about"
                     onPress={()=> this.props.navigation.navigate('about',{name:'Sahad'})}
                 />
+                <Button
+                    title="Go to users"
+                    onPress={()=> this.props.navigation.navigate('users')}
+                />
             </View>
             
         )

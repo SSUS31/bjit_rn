@@ -28,6 +28,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/screens/Homne/Home';
 import AboutScreen from './src/screens/About/About';
+import UsersScreen from './src/screens/Users/Users';
 
 const { container,
         titleStyle
@@ -60,6 +61,11 @@ class App extends React.Component {
           //     <Text>Back</Text>
           //   ),
           // })}
+            />
+            <Stack.Screen 
+            name="users"
+            component={UsersScreen} 
+            options={{title:'Users'}}
             />
         </Stack.Navigator>
       </NavigationContainer>
